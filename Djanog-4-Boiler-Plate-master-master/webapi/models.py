@@ -5,7 +5,8 @@ from django.db import models
 role = (
 
     ('superadmin','superadmin'),
-    ('subadmin','subadmin')
+    ('subadmin','subadmin'),
+    ('user','user')
    
 )
 
@@ -31,6 +32,9 @@ class user(models.Model):
     alias = models.CharField(max_length=255, default="")
     email = models.EmailField(max_length=255, default="")
     password = models.TextField(max_length=255, default="")
+    Otp = models.IntegerField(default=0)
+    OtpStatus = models.CharField(max_length=10,default="False")
+    OtpCount = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
